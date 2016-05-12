@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
 <head>
   <title>PlanTasticProject2</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'https://js.stripe.com/v2/' %>
   <%= csrf_meta_tags %>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 </head>
 <body>
 
@@ -26,7 +29,9 @@
     </p>
   <% end %>
 
-<%= yield %>
-
+  <div class='container'>
+      <%= yield %>
+  </div>
+  
 </body>
 </html>
