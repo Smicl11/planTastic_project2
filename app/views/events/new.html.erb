@@ -1,0 +1,23 @@
+Create an Event
+
+<%= form_for @event, url: create_event_path do |f| %>
+  <div>
+    <%= f.text_field :title, placeholder: "Title" %>
+  </div>
+  <div>
+    <%= f.text_field :location, placeholder: "Location" %>
+  </div>
+  <div>
+    <%= f.date :event_date, placeholder: "Date" %>
+  </div>
+  <div>
+    <%= f.time :event_time, placeholder: "Time" %>
+  </div>
+  <div>
+    <%= f.text_area :description, placeholder: "Description" %>
+  </div>
+  <div>
+    <%= f.text_field :photo, {placeholder: "Image URL", class: "form-control "} %>
+  </div>
+  <%= f.submit "Add Event" %>
+<% end %>
