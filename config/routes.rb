@@ -11,11 +11,12 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   get "/logout", to: "sessions#destroy"
   post "/sessions", to: "sessions#create"
+
   #Comments
-  get 'comments/index', to: "comments#index", as: "comments"
-  get 'comments/new', to: "comment#new", as: "comment_new"
-  get 'comments/create', to: "comment#create"
-  get 'comments/edit', to: "comment#edit", as: "comment_edit"
-  get 'comments/update', to: "comment#update", as:
-  get 'comments/destroy', to: "comment#destroy"
+  get '/comments', to: "comments#index", as: "comments"
+  get '/comments/new', to: "comments#new", as: "new_comment"
+  post '/comments/create', to: "comments#create"
+  get '/comments/:id/edit', to: "comments#edit", as: "edit_comment"
+  patch '/comments/:id', to: "comments#update"
+  delete '/comments/:id', to: "comments#destroy"
 end
