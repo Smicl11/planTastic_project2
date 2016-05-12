@@ -12,15 +12,26 @@
 <body>
 
   <!-- Basic Navbar -->
-  <ul>
-    <% if current_user %>
-      <li><%= link_to "Profile", user_path(current_user) %></li> 
-      <li><%= link_to "Log Out", logout_path %></li>
-    <% else %>
-      <li><%= link_to "Create Account", new_user_path %></li>
-      <li><%= link_to "Log In", login_path %></li>
-    <% end %>
-  </ul>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <%= link_to "planTastic", users_path, class: "navbar-brand" %>
+      <ul class="nav navbar-nav">
+        <% if current_user %>
+          <li><%= link_to "Profile", user_path(current_user) %></li>
+        <% else %>
+          <li><%= link_to "Create Account", new_user_path %></li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <li><%= link_to "Log Out", logout_path %></li>
+        <% else %>
+          <li><%= link_to "Log In", login_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+
 
   <!-- Flash Message -->
   <% flash.each do |name, msg| %>
