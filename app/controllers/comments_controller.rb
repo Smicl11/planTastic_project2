@@ -1,8 +1,4 @@
 class CommentsController < ApplicationController
-  def index
-    @comments = Comment.all
-    render :index
-  end
 
   def new
     @comment = Comment.new
