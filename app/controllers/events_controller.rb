@@ -23,6 +23,23 @@ class EventsController < ApplicationController
     redirect_to @user
   end
 
+  def edit
+    event_id = params[:id]
+    @event = Event.find_by(id: event_id)
+    render :edit
+  end
+
+  def update
+    event_id = params[:id]
+    @event = Event.find_by(id: event_id)
+    if @event.update(event_params)
+      redirect_to event_path(@event)
+    else
+      flash[:error] = "There was a problem saving your changes"
+      redirect_to edit_event_path(@event)
+    end
+  end
+
   private
 
   def event_params
