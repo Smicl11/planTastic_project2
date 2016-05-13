@@ -20,7 +20,7 @@ class EventsController < ApplicationController
       @event.photo = "http://indianasenatedemocrats.org/wp-content/plugins/ajax-search-pro/img/default.jpg"
     end
     @event.save
-    redirect_to @user
+    redirect_to @event
   end
 
   def edit
