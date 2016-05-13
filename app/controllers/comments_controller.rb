@@ -12,6 +12,8 @@ class CommentsController < ApplicationController
   end
 
   def create
+    @event = Event.find_by(params[:id])
+    @comment = Comment.create(comment_params)
   end
 
   def edit
