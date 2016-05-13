@@ -1,10 +1,6 @@
 class CommentsController < ApplicationController
   before_action :get_id, only: [:update, :destroy]
   before_action :comment_params, only: [:update, :create]
-  def index
-    @comments = Comment.all
-    render :index
-  end
 
   def new
     @comment = Comment.new
