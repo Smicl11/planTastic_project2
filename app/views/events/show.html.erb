@@ -1,0 +1,24 @@
+<div class="eventShow">
+  <div class="col-lg-6">
+
+    <div>
+      <h1 class="eventTitle"><%= @event.title%>
+      <%= image_tag (@event.photo), class: "eventPic"%>
+      <p class="eventLocation"> <%= @event.location%></p> </br>
+      <p class="date"> <%= @event.event_date%></p>
+      <p class="time"> <%= @event.event_time%></p>
+
+      <%= link_to "Edit", edit_event_path(@event)%>
+      
+    </div>
+  </div>
+  <% @event.comments.each do |comment| %>
+  <div class="comments">
+    <hr>
+    <p><%= link_to comment.description %></p></br>
+    <p> Published <%= time_ago_in_words (post.created_at)%> ago</p>
+    </br>
+
+  </div>
+<%end%>
+</div>

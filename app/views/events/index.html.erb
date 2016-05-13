@@ -1,7 +1,7 @@
 <div class="eventList">
  <% @event.each do |t|%>
 <div class="col-lg-6">
-  <%= link_to event_path do %>
+  <%= link_to event_path (@event) do %>
   <p class="oneEvent"> <%= image_tag (t.photo), class: " " %>  <%=link_to "#{t.title}", event_path(t)%></p>
   <% end %>
   </div>
