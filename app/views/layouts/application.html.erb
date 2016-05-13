@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-  <title>PlanTasticProject2</title>
+  <title>planTastic</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'https://js.stripe.com/v2/' %>
@@ -12,26 +12,53 @@
 <body>
 
   <!-- Basic Navbar -->
-  <ul>
-    <% if current_user %>
-      <li><%= link_to "Profile", user_path(current_user) %></li> 
-      <li><%= link_to "Log Out", logout_path %></li>
-    <% else %>
-      <li><%= link_to "Create Account", new_user_path %></li>
-      <li><%= link_to "Log In", login_path %></li>
-    <% end %>
-  </ul>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <%= link_to "planTastic", users_path, class: "navbar-brand" %>
+      <ul class="nav navbar-nav">
+        <% if current_user %>
+          <li><%= link_to "My Profile", user_path(current_user) %></li>
+          <li><%= link_to "Create Event", new_event_path %></li>
+        <% else %>
+
+        <% end %>
+        <li><%= link_to "All Events", events_path%></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <li><%= link_to "Log Out", logout_path %></li>
+        <% else %>
+          <li><%= link_to "Create Account", new_user_path %></li>
+          <li><%= link_to "Log In", login_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+
 
   <!-- Flash Message -->
-  <% flash.each do |name, msg| %>
-    <p>
-      <small> <%= name.capitalize %>: <%= msg %> </small>
-    </p>
-  <% end %>
+  <div class="container">
+    <% flash.each do |name, msg| %>
+        <div class="alert alert-success">
+          <%= name.capitalize %>: <%= msg %>
+        </div>
+    <% end %>
+  </div>
+
 
   <div class='container'>
       <%= yield %>
   </div>
+
+<div class="container">
+  <div class="row">
+    <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+      <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
+  </div>
+</div>
+
 
 </body>
 </html>

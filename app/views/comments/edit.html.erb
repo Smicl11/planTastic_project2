@@ -1,0 +1,20 @@
+<div class = "container" >
+  <div class = "col-sm-12">
+    <h1> Edit comment</h1>
+    <div>
+      <%= simple_form_for @comment do |f| %>
+    </div><br>
+    <div>
+      <%= f.label :contribution, "I can contribute:" %>
+      <%= f.select :contribution, [['Beverages'],['Snacks'],['Money'],['Tents']], class: 'form-control'%>
+    </div><br>
+    <div>
+      <%= f.label :description, "Comment:" %>
+      <%= f.text_area :description, placeholder: "Write your comment here..", class: 'form-control' %>
+    </div><br>
+    <div>
+      <%= f.submit class:'btn btn-primary' %>
+    </div>
+      <% end %>
+  </div>
+</div>
