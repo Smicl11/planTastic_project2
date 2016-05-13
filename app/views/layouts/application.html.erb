@@ -35,9 +35,9 @@
 
   <!-- Flash Message -->
   <% flash.each do |name, msg| %>
-    <p>
-      <small> <%= name.capitalize %>: <%= msg %> </small>
-    </p>
+      <div class="alert alert-success">
+        <%= name.capitalize %>: <%= msg %>
+      </div>
   <% end %>
 
   <div class='container'>
