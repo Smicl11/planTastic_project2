@@ -20,7 +20,24 @@ class EventsController < ApplicationController
       @event.photo = "http://indianasenatedemocrats.org/wp-content/plugins/ajax-search-pro/img/default.jpg"
     end
     @event.save
-    redirect_to @user
+    redirect_to @event
+  end
+
+  def edit
+    event_id = params[:id]
+    @event = Event.find_by(id: event_id)
+    render :edit
+  end
+
+  def update
+    event_id = params[:id]
+    @event = Event.find_by(id: event_id)
+    if @event.update(event_params)
+      redirect_to event_path(@event)
+    else
+      flash[:error] = "There was a problem saving your changes"
+      redirect_to edit_event_path(@event)
+    end
   end
 
   private
