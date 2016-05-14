@@ -1,4 +1,8 @@
 require "spec_helper"
-describe "A comment" do
-  it "has a description"
-end
+require "Comment"
+
+  describe Comment do
+    it "has a description"
+      comment = Comment.new
+      comment.description.should != nil
+    end

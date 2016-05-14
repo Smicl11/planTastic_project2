@@ -1,2 +1,6 @@
 class Comment < ActiveRecord::Base
-end
+  attr_accessor :description
+
+  def initialize
+    @description = ''
+  end
