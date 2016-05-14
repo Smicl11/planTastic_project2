@@ -1,3 +1,31 @@
-<div>
-  Welcome, <%= @user.email %>
+
+
+<!-- Profile side bar -->
+<div class="container">
+  <div class="col-md-4">
+    <div class="row">
+      <img src="http://eadb.org/wp-content/uploads/2015/08/profile-placeholder.jpg" alt="broken" />
+    </div>
+    <div class="row">
+      <h3>Welcome, <%= @user.first_name %></h3>
+    </div>
+    <div class="row">
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td>First Name:</td>
+            <td><%= @user.first_name %></td>
+          </tr>
+          <tr>
+            <td>Last Name:</td>
+            <td><%= @user.last_name%></td>
+          </tr>
+          <tr>
+            <td>Email Address:</td>
+            <td><%= @user.email%></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
