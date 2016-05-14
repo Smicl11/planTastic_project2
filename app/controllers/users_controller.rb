@@ -18,7 +18,31 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:id])
-    render :show
+    if @user == current_user
+      render :show
+    else
+      redirect_to users_path
+    end
+  end
+
+  def edit
+    @user = User.find_by_id(params[:id])
+    if current_user==@user
+      render :edit
+    else
+      redirect_to users_path
+    end
+  end
+
+  def update
+    @user = User.find_by_id(params[:id])
+    if current_user==@user
+      @user.update(user_params)
+      flash[:notice] = "Successfully Edited!"
+      redirect_to @user
+    else
+      redirect_to users_path
+    end
   end
 
   private
