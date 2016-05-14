@@ -3,11 +3,11 @@
 
     <div>
       <h1 class="eventTitle"><%= @event.title%></h1>
-      <%= image_tag (@event.photo), class: "eventPic"%>
+      <%= image_tag (@event.photo), class: "img-responsive img-thumbnail"%>
       <p class="eventLocation"> <%= @event.location%></p> </br>
       <p class="date"> <%= @event.event_date%> <%= @event.event_time%></p>
       <p class="description"> <%= @event.description%></p>
-      <%= link_to "Edit", edit_event_path(@event)%>
+      <%= button_to "Edit", edit_event_path(@event), :method => "get", class: "btn btn-small btn-success"%>
     </div>
   </div>
 </div>
