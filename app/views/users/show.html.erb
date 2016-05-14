@@ -4,7 +4,7 @@
 <div class="container">
   <div class="col-md-4">
     <div class="row">
-      <img src="http://eadb.org/wp-content/uploads/2015/08/profile-placeholder.jpg" class="img-thumbnail img-responsive" />
+      <%= image_tag @user.profile_image, class: "img-responsive img-thumbnail"%>
     </div>
     <div class="row">
       <h3>Welcome, <%= @user.first_name %></h3>
@@ -26,6 +26,16 @@
           </tr>
         </tbody>
       </table>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <h1>Your Events.</h1>
+    </div>
+    <div class="row">
+      <p>
+        All the events will show up here!
+      </p>
     </div>
   </div>
 </div>
