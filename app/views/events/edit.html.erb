@@ -1,23 +1,19 @@
-Edit Event
-
-<%= form_for @event, url: update_event_path(@event) do |f| %>
-  <div>
-    <%= f.text_field :title, placeholder: "Title" %>
+<div class="container">
+  <div class="col-md-6">
+    <div class="row">
+      <h1>Edit your Event</h1>
+    </div>
+    <hr>
+    <div class="row">
+      <%= simple_form_for @event, as: 'event' do |f| %>
+        <%= f.input :title, placeholder: "Title"%>
+        <%= f.input :location, placeholder: "Location"%>
+        <%= f.input :event_date, placeholder: "Date"%>
+        <%= f.input :event_time, placeholder: "Time"%>
+        <%= f.input :description, placeholder: "Description" %>
+        <%= f.input :photo, {placeholder: "Image URL", class: "form-control "} %>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
   </div>
-  <div>
-    <%= f.text_field :location, placeholder: "Location" %>
-  </div>
-  <div>
-    <%= f.date_field :event_date, placeholder: "Date" %>
-  </div>
-  <div>
-    <%= f.time_field :event_time, placeholder: "Time" %>
-  </div>
-  <div>
-    <%= f.text_area :description, placeholder: "Description" %>
-  </div>
-  <div>
-    <%= f.text_field :photo, {placeholder: "Image URL", class: "form-control "} %>
-  </div>
-  <%= f.submit "Save Changes" %>
-<% end %>
+</div>

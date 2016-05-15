@@ -1,24 +1,18 @@
-Edit
-<div class="conatiner">
-  <form class="form">
-    <%= form_for @user do |f| %>
-      <div>
-        <%= f.text_field :first_name, placeholder: "First Name" %>
-      </div>
-      <div>
-        <%= f.text_field :last_name, placeholder: "Last Name" %>
-      </div>
-      <div>
-        <%= f.text_field :email, placeholder: "Email" %>
-      </div>
-      <div>
-        <%= f.text_field :profile_image, placeholder: "www.domain.com/image.jpg" %>
-      </div>
-      <div>
-        <%= f.password_field :password, placeholder: "Password" %>
-      </div>
-      <%= f.submit "update" %>
-    <% end %>
-
-  </form>
+<div class="container">
+  <div class="col-md-6">
+    <div class="row">
+      <h1>Edit</h1>
+    </div>
+    <hr>
+    <div class="row">
+      <%= simple_form_for @user, as: 'user' do |f| %>
+        <%= f.input :first_name, placeholder: "Frist Name"%>
+        <%= f.input :last_name, placeholder: "Last Name"%>
+        <%= f.input :email, placeholder: "email@email.com"%>
+        <%= f.input :password, placeholder: "Password"%>
+        <%= f.input :profile_image, placeholder: "www.domain.com/image.jpg" %>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
+  </div>
 </div>
