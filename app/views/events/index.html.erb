@@ -2,6 +2,6 @@
  <% @event.each do |t|%>
 <div class="col-lg-6">
   <p class="oneEvent"> <%= image_tag (t.photo), class: " " %>  <%=link_to "#{t.title}", event_path(t)%></p>
-  <p>created by <%= User.find(t.user_id).first_name %>
+  <p>created by <%= User.find(t.user_id).first_name %> <%= User.find(t.user_id).last_name %>
   </div>
   <%end%>
