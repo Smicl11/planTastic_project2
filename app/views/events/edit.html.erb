@@ -8,10 +8,10 @@
       <%= simple_form_for @event, as: 'event' do |f| %>
         <%= f.input :title, placeholder: "Title"%>
         <%= f.input :location, placeholder: "Location"%>
+        <%= f.input :photo, {placeholder: "Image URL", class: "form-control "} %>
+        <%= f.input :description, placeholder: "Description" %>
         <%= f.input :event_date, placeholder: "Date"%>
         <%= f.input :event_time, placeholder: "Time"%>
-        <%= f.input :description, placeholder: "Description" %>
-        <%= f.input :photo, {placeholder: "Image URL", class: "form-control "} %>
         <%= f.button :submit %>
       <% end %>
     </div>
