@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all
     render :index
   end
 
@@ -43,6 +42,13 @@ class UsersController < ApplicationController
     else
       redirect_to users_path
     end
+  end
+
+  #doesn't delete the DB record of this user. 
+  def destroy
+    @user = User.find_by_id(params[:id])
+    @user.destroy
+    redirect_to root_path
   end
 
   private
