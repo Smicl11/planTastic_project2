@@ -6,7 +6,7 @@
     <hr>
     <div class="row">
       <%= simple_form_for @comment, url: create_comment_path, as:'comment' do |f| %>
-        <%= f.input :description, placeholder: "Write your comment here..", class: 'form-control' %>
+        <%= f.input :description, :as => :text, placeholder: "Write your comment here..", class: 'form-control' %>
         <%= f.button :submit %>
       <% end %>
     </div>
