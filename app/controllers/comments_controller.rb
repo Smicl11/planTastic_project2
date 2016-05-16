@@ -10,6 +10,8 @@ class CommentsController < ApplicationController
   def create
     @event = Event.find_by(params[:id])
     @comment = Comment.create(comment_params)
+    @event.comments << @comment
+    redirect_to event_path
   end
 
   def edit
@@ -20,7 +22,7 @@ class CommentsController < ApplicationController
 
   def update
     get_id.update_attributes(comment_params)
-    redirect_to user_path(user)
+    redirect_to event_path
 
   end
 
