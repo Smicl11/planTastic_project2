@@ -1,13 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe CommentController, type: :controller do
-
-  let(:signed_in_user) { FactoryGirl.create(:comment) }
+RSpec.describe CommentsController, type: :controller do
+  let(:signed_in_user) { FactoryGirl.create(:user) }
   let(:comments_count) { FactoryGirl.create(:comment)}
-
-  let(:attr) do
-    { description: 'new description', contribution:'new content'}
-  end
+  let(:attr) { FactoryGirl.create(description: 'new description', contribution: 'new content') }
 
   before(:each) do
     patch :update, { id:@comment.id, comment:attr }
@@ -25,6 +21,7 @@ RSpec.describe CommentController, type: :controller do
       expect(response).to render_template(:new)
     end
   end
+
   describe "POST #create" do
     context "success" do
       it "adds new comment to current_user" do
@@ -48,22 +45,23 @@ RSpec.describe CommentController, type: :controller do
   end
 
   describe "GET #edit" do
-    it { }
+    it {should redirect_to edit_path}
   end
 
 
   describe "PATCH #update" do
-    it { expect(response).to redirect_to(@comment) }
+    it { expect(:update).to redirect_to(@comment) }
     it { expect(@comment.description).to eql attr[:description] }
     it { expect(@comment.contribution).to eql attr[:contribution] }
   end
 
   describe "delete #destroy" do
     context "success" do
-      it { expect(find_by_id(comment_id).to eql(@comment) }
-      it { expect(response).to redirect_to(user_path) }
+      it { expect(find_by_id(comment_id)).to eql(@comment) }
+      it { expect(:destroy).to redirect_to(user_path) }
       it { expect(@comment.description).to eql attr[:description] }
       it { expect(@comment.contribution).to eql attr[:contribution] }
     end
   end
+
 end
