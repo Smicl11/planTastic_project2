@@ -19,11 +19,12 @@
       <%= button_to "Login", login_path, :method => "get", class: "btn btn-small btn-primary" %>
     <% end %>
   </div>
-  <div class="comments-container">
-    <%= button_to "Add Comment", new_comment_path(@event), :method => "get", class: "btn btn-small btn-primary"%>
+  <div class="col-md-6">
     <% @comments.each do |comment|%>
-    <%= comment.contribution %>
-    <%= comment.description %>
+      <div class="row comment">
+        <%= comment.description %>
+      </div>
     <% end %>
+    <%= button_to "Add Comment", new_comment_path(@event), :method => "get", class: "btn btn-small btn-primary"%>
   </div>
 </div>
