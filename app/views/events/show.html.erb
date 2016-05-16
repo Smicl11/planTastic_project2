@@ -21,7 +21,7 @@
   </div>
   <div class="comments-container">
     <%= button_to "Add Comment", new_comment_path(@event), :method => "get", class: "btn btn-small btn-primary"%>
-    <% @comment.each do |comment|%>
+    <% @comments.each do |comment|%>
     <%= comment.contribution %>
     <%= comment.description %>
     <% end %>

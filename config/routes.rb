@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   #Comments
   get '/events/:id/comments/new', to: "comments#new", as: "new_comment"
-  post '/events/:id/comments/create', to: "comments#create"
+  post '/events/:id/comments/create', to: "comments#create", as:"create_comment"
   get '/events/:id/comments/:id/edit', to: "comments#edit", as: "edit_comment"
   patch '/events/:id/comments/:id', to: "comments#update"
   delete '/events/:id/comments/:id', to: "comments#destroy"
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   #Events
   get "/events", to: "events#index", as: "events"
   get "/events/new", to: "events#new", as: "new_event"
-  post "/events", to: "events#create"
+  post "/events", to: "events#create", as: "create_event"
   get "/events/:id", to: "events#show", as: "event"
   get "/events/:id/edit", to: "events#edit", as: "edit_event"
   patch "/events/:id/", to: "events#update", as: "update_event"
