@@ -26,8 +26,6 @@ ActiveRecord::Schema.define(version: 20160514220412) do
   create_table "comments", force: :cascade do |t|
     t.string   "description"
     t.string   "contribution"
-    t.integer  "user_id"
-    t.integer  "event_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
@@ -39,7 +37,6 @@ ActiveRecord::Schema.define(version: 20160514220412) do
     t.time     "event_time"
     t.text     "description"
     t.string   "photo"
-    t.integer  "user_id"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end

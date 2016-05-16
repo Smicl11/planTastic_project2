@@ -36,13 +36,13 @@
 
 
   <!-- Flash Message -->
-  <div class="container">
+
     <% flash.each do |name, msg| %>
         <div class="alert alert-success">
           <%= name.capitalize %>: <%= msg %>
         </div>
     <% end %>
-  </div>
+
 
   <!-- Pages render in here -->
   <%= yield %>
