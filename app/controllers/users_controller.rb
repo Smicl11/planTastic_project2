@@ -37,14 +37,14 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
     if current_user==@user
       @user.update(user_params)
-      flash[:notice] = "Successfully Edited!"
+      flash[:success] = "Successfully Edited!"
       redirect_to @user
     else
       redirect_to users_path
     end
   end
 
-  #doesn't delete the DB record of this user. 
+  #doesn't delete the DB record of this user.
   def destroy
     @user = User.find_by_id(params[:id])
     @user.destroy

@@ -6,9 +6,10 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find_by_id(params[:id])
+    event_id_by_comment_id = Comment.find(params[:id]).event_id
+    @event = Event.find_by_id(event_id_by_comment_id)
     @comments = @event.comments
-    @user = User.find_by_id(params[:id])
+    # @user = User.find_by_id(params[:id])
     render :show
   end
 
