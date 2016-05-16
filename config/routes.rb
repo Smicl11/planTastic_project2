@@ -36,4 +36,5 @@ Rails.application.routes.draw do
   get "/events/:id/attend/new", to: "attendances#new", as: "new_attendance"
   post "/events/:id/attend", to: "attendances#create", as: "create_attendance"
 
+
 end

@@ -2,7 +2,7 @@
   <div class = "col-sm-12">
     <h1><%= @event.title %></h1>
     <div>
-      <%= form_for :attendance do |f| %>
+      <%= form_for @attendance, url: create_attendance_path do |f| %>
     </div><br>
     <div>
       <%= f.label :contribution, "I can contribute:" %>
