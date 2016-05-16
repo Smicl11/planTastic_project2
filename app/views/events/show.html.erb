@@ -5,6 +5,8 @@
   <div class="col-md-6">
     <div class="row">
       <%= image_tag (@event.photo), class: "img-responsive img-thumbnail"%>
+      <%= button_to "Attend", new_attendance_path(@event), :method => "get" %>
+      <p>There are <%= @event.attendances.count %> members attending this event</p>
     </div>
   </div>
   <div class="col-md-6">

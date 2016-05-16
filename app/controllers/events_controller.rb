@@ -51,7 +51,12 @@ class EventsController < ApplicationController
     @event.destroy
     redirect_to events_path
   end
-  
+
+  def attend
+    @event.attendances << current_user
+    @event.save
+  end
+
   private
 
   def event_params
