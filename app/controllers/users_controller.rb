@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all
     render :index
   end
 
@@ -18,7 +17,38 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:id])
-    render :show
+    if @user == current_user
+      render :show
+    else
+      redirect_to users_path
+    end
+  end
+
+  def edit
+    @user = User.find_by_id(params[:id])
+    if current_user==@user
+      render :edit
+    else
+      redirect_to users_path
+    end
+  end
+
+  def update
+    @user = User.find_by_id(params[:id])
+    if current_user==@user
+      @user.update(user_params)
+      flash[:notice] = "Successfully Edited!"
+      redirect_to @user
+    else
+      redirect_to users_path
+    end
+  end
+
+  #doesn't delete the DB record of this user. 
+  def destroy
+    @user = User.find_by_id(params[:id])
+    @user.destroy
+    redirect_to root_path
   end
 
   private
