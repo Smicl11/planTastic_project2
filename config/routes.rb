@@ -16,11 +16,11 @@ Rails.application.routes.draw do
   post "/sessions", to: "sessions#create"
 
   #Comments
-  get '/comments/new', to: "comments#new", as: "new_comment"
-  post '/comments/create', to: "comments#create"
-  get '/comments/:id/edit', to: "comments#edit", as: "edit_comment"
-  patch '/comments/:id', to: "comments#update"
-  delete '/comments/:id', to: "comments#destroy"
+  get '/events/:id/comments/new', to: "comments#new", as: "new_comment"
+  post '/events/:id/comments/create', to: "comments#create"
+  get '/events/:id/comments/:id/edit', to: "comments#edit", as: "edit_comment"
+  patch '/events/:id/comments/:id', to: "comments#update"
+  delete '/events/:id/comments/:id', to: "comments#destroy"
 
 
   #Events
