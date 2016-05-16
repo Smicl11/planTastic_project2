@@ -26,9 +26,10 @@
     <% @comments.each do |comment|%>
       <div class="row comment">
         <div class="row">
-          <strong><h5><%= @user.first_name%> says:</h5></strong>  
+          <strong><h5><%= @user.first_name%> says:</h5></strong>
         </div>
         <p><%= comment.description %></p>
+        <%= button_to "Edit", edit_comment_path, :method => 'get', class: "btn btn-small btn-success"%>
       </div>
     <% end %>
     <%= button_to "Add Comment", new_comment_path(@event), :method => "get", class: "btn btn-small btn-primary"%>
