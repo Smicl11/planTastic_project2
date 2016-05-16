@@ -25,7 +25,6 @@ RSpec.describe CommentController, type: :controller do
       expect(response).to render_template(:new)
     end
   end
-
   describe "POST #create" do
     context "success" do
       it "adds new comment to current_user" do

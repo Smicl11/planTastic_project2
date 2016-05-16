@@ -1,21 +1,26 @@
 class EventsController < ApplicationController
   def index
     @event = Event.all
+    @user = User.find_by_id(params[:id])
     render :index
   end
 
   def show
     @event = Event.find_by_id(params[:id])
+    @user = User.find_by_id(params[:id])
     # @comments = @event.comments
     render :show
   end
 
   def new
     @event = Event.new
+    @user = User.find_by_id(params[:id])
   end
 
   def create
     @event = Event.new(event_params)
+    @event.user_id = current_user.id
+    @user = User.find_by_id(params[:id])
     if @event.photo == ""
       @event.photo = "http://indianasenatedemocrats.org/wp-content/plugins/ajax-search-pro/img/default.jpg"
     end
@@ -26,6 +31,7 @@ class EventsController < ApplicationController
   def edit
     event_id = params[:id]
     @event = Event.find_by(id: event_id)
+    @user = User.find_by_id(params[:id])
     render :edit
   end
 
@@ -40,6 +46,12 @@ class EventsController < ApplicationController
     end
   end
 
+  def destroy
+    @event = Event.find_by_id(params[:id])
+    @event.destroy
+    redirect_to events_path
+  end
+  
   private
 
   def event_params
