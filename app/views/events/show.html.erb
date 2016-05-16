@@ -25,8 +25,10 @@
     </div>
     <% @comments.each do |comment|%>
       <div class="row comment">
-        <%= @user.first_name%>:
-        <%= comment.description %>
+        <div class="row">
+          <strong><h5><%= @user.first_name%> says:</h5></strong>  
+        </div>
+        <p><%= comment.description %></p>
       </div>
     <% end %>
     <%= button_to "Add Comment", new_comment_path(@event), :method => "get", class: "btn btn-small btn-primary"%>
