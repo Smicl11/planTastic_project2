@@ -25,6 +25,7 @@
     </div>
     <% @comments.each do |comment|%>
       <div class="row comment">
+        <%= @user.first_name%>:
         <%= comment.description %>
       </div>
     <% end %>
