@@ -1,13 +1,22 @@
-<div class="eventShow">
-  <div class="col-lg-6">
-
-    <div>
-      <h1 class="eventTitle"><%= @event.title%></h1>
+<div class="container events-container">
+  <div class="row">
+    <h1 class="eventTitle"><%= @event.title%></h1>
+  </div>
+  <div class="col-md-6">
+    <div class="row">
       <%= image_tag (@event.photo), class: "img-responsive img-thumbnail"%>
-      <p class="eventLocation"> <%= @event.location%></p> </br>
-      <p class="date"> <%= @event.event_date%> <%= @event.event_time%></p>
-      <p class="description"> <%= @event.description%></p>
-      <%= button_to "Edit", edit_event_path(@event), :method => "get", class: "btn btn-small btn-success"%>
     </div>
+  </div>
+  <div class="col-md-6">
+    <%= @event.description%>
+    <%= @event.location%>
+    <%= @event.event_date%>
+    <%= @event.event_time%>
+    <% if current_user%>
+      <%= button_to "Edit", edit_event_path(@event), :method => "get", class: "btn btn-small btn-success"%>
+      <%= button_to "Delete Event", delete_event_path, data: {:confirm=>'Are you sure you want to delete this event?'}, :method => "delete", class: "btn btn-small btn-danger" %>
+    <% else %>
+      <%= button_to "Login", login_path, :method => "get", class: "btn btn-small btn-primary" %>
+    <% end %>
   </div>
 </div>

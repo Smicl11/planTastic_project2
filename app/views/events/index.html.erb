@@ -2,7 +2,7 @@
   <h1>Welcome to the Events page!</h1>
   <div class="col-md-12">
     <% @event.each do |t|%>
-      <div class="row">
+      <div class="row event">
         <div class="col-md-4">
           <%= image_tag (t.photo), class: "img-responsive img-thumbnail" %>
         </div>

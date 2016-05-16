@@ -5,7 +5,7 @@
     </div>
     <hr>
     <div class="row">
-      <%= simple_form_for @event, as: 'event' do |f| %>
+      <%= simple_form_for @event, url: create_event_path, as: 'event' do |f| %>
         <%= f.input :title, placeholder: "Title"%>
         <%= f.input :location, placeholder: "Location"%>
         <%= f.input :photo, {placeholder: "Image URL", class: "form-control "} %>

@@ -5,7 +5,7 @@
     </div>
     <hr>
     <div class="row">
-      <%= simple_form_for @user, as: 'user' do |f| %>
+      <%= simple_form_for @user, url: create_user_path, as: 'user' do |f| %>
         <%= f.input :first_name, placeholder: "Frist Name"%>
         <%= f.input :last_name, placeholder: "Last Name"%>
         <%= f.input :email, placeholder: "email@email.com"%>
