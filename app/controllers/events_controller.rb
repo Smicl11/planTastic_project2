@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find_by_id(params[:id])
     @comments = @event.comments
-
+    @user = User.find_by_id(params[:id])
     render :show
   end
 
