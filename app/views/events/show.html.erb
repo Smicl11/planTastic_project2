@@ -34,6 +34,7 @@
     <%= button_to "Add Comment", new_comment_path, :method => "get", class: "btn btn-small btn-primary"%>
       <% @comments.each do |comment|%>
       <p><%= comment.description %></p>
+      <p><%= link_to "Delete", delete_comment_path, method: :delete, data: {confirm: 'Are you sure?'}%> </p>
     <% end %>
   </div>
   </div>
