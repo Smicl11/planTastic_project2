@@ -10,12 +10,9 @@ class CommentsController < ApplicationController
 
 
   def create
-
-    @comment = Comment.new(comment_params)
-    @event = Event.find_by_id(params[:id])
-    @event.comments << @comment
+    @event = Event.find(params[:id])
+    @comment = @event.comments.create(comment_params)
     redirect_to event_path(@event)
-
 
   end
 
@@ -31,8 +28,13 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    get_id.destroy
-    redirect_to event_path
+
+    @event = Event.find(params[:id])
+    @comment = @event.comments.find(params[:id])
+    @comment.destroy
+
+    redirect_to event_path(@event)
+
   end
 
   private
@@ -45,7 +47,7 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:description, :contribution)
+    params.require(:comment).permit(:description)
   end
 
 end
