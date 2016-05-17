@@ -51,16 +51,16 @@ RSpec.describe CommentsController, type: :controller do
 
   describe "PATCH #update" do
     it { expect(:update).to redirect_to(@comment) }
-    it { expect(@comment.description).to eql attr[:description] }
-    it { expect(@comment.contribution).to eql attr[:contribution] }
+    it { expect(@comment.description).to eq attr[:description] }
+    it { expect(@comment.contribution).to eq attr[:contribution] }
   end
 
   describe "delete #destroy" do
     context "success" do
       it { expect(find_by_id(comment_id)).to eql(@comment) }
       it { expect(:destroy).to redirect_to(user_path) }
-      it { expect(@comment.description).to eql attr[:description] }
-      it { expect(@comment.contribution).to eql attr[:contribution] }
+      it { expect(@comment.description).to eq attr[:description] }
+      it { expect(@comment.contribution).to eq attr[:contribution] }
     end
   end
 
