@@ -42,7 +42,7 @@ class EventsController < ApplicationController
       redirect_to event_path(@event)
     else
       flash[:error] = "There was a problem saving your changes"
-      redirect_to edit_event_path(@event)
+      redirect_to event_path(@event)
     end
   end
 

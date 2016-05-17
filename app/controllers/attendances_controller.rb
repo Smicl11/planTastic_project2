@@ -19,14 +19,13 @@ class AttendancesController < ApplicationController
         flash[:notice] = "Thank you for joining " + @event.title
         redirect_to @event
 
+      elsif @attendance.destroy
+        flash[:error] = "There was a problem, try again"
+        redirect_to @event
       else
-        @attendance.destroy
-        flash[:error] = "Something went wrong, please try again."
+        flash[:error] = "You must be logged in to join events"
         redirect_to new_attendance_path
       end
-    else
-      flash[:error] = "You must be logged in to join events"
-      redirect_to new_attendance_path
     end
   end
 
