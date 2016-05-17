@@ -38,12 +38,14 @@
   </div>
   <div class="col-md-6">
     <div class="row">
-      <h1>Your Events.</h1>
+      <h1>Your Events</h1>
     </div>
     <div class="row">
+      <% @user.attendances.each do |attendance| %>
       <p>
-        All the events will show up here!
+        <%= link_to @user.events, event_path(@user.events) %>
       </p>
     </div>
+    <% end %>
   </div>
 </div>
