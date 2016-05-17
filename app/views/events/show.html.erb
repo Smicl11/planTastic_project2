@@ -30,5 +30,11 @@
       <p> Contribution: <%= attendance.contribution %></p>
     </div>
     <% end %>
+    <div class="comments-container">
+    <%= button_to "Add Comment", new_comment_path, :method => "get", class: "btn btn-small btn-primary"%>
+      <% @comments.each do |comment|%>
+      <p><%= comment.description %></p>
+    <% end %>
+  </div>
   </div>
 </div>
