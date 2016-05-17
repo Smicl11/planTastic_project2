@@ -1,0 +1,16 @@
+<div class = "container" >
+  <div class = "col-sm-12">
+    <h1><%= @event.title %></h1>
+    <div>
+      <%= form_for @attendance, url: create_attendance_path do |f| %>
+    </div><br>
+    <div>
+      <%= f.label :contribution, "I can contribute:" %>
+      <%= f.select :contribution, [['Beverages'],['Snacks'],['Money'],['Tents']], class: 'form-control'%>
+    </div>
+    <div>
+      <%= f.submit "Attend Event", class:'btn btn-primary' %>
+    </div>
+      <% end %>
+  </div>
+</div>
