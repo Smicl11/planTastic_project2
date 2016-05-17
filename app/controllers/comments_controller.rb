@@ -21,7 +21,6 @@ class CommentsController < ApplicationController
   def update
     get_id.update_attributes(comment_params)
     redirect_to user_path(user)
-
   end
 
   def destroy

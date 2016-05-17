@@ -10,8 +10,8 @@ Event.create({title:"Now 1999", location:"General Assembly", event_date:"1/1/99"
 
 
 #comment
-Comment.create({description: "I hate you guys. You're the worst", contribution: "poop"})
-Comment.create({description: "Wow this is cool", contribution: "toilet paper"})
-Comment.create({description: "bloop bloop", contribution: "5"})
-Comment.create({description: "I've never met a carrot I didn't like... EXCEPT FOR THIS ONE", contribution: "this one carrot"})
-Comment.create({description: "coolio is my favorite music artist of all time.", contribution: "noonoo (the vacuum from teletubbies)"})
+Comment.create({description: "I hate you guys. You're the worst"})
+Comment.create({description: "Wow this is cool"})
+Comment.create({description: "bloop bloop"})
+Comment.create({description: "I've never met a carrot I didn't like... EXCEPT FOR THIS ONE"})
+Comment.create({description: "coolio is my favorite music artist of all time."})
