@@ -22,7 +22,7 @@ class EventsController < ApplicationController
     @event.user_id = current_user.id
     @user = User.find_by_id(params[:id])
     if @event.photo == ""
-      @event.photo = "http://indianasenatedemocrats.org/wp-content/plugins/ajax-search-pro/img/default.jpg"
+      @event.photo = "/placeholder.jpg"
     end
     @event.save
     redirect_to @event
