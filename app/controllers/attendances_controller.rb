@@ -2,22 +2,27 @@ class AttendancesController < ApplicationController
 
   def new
     @event = Event.find_by(params[:event_id])
+    @user = User.find_by(params[:user_id])
     @attendance = Attendance.new
   end
 
   def create
     if current_user
       @attendance = Attendance.new(attendance_params)
+      @user = User.find_by(params[:user_id])
       @event = Event.find(params[:id])
       if @attendance.save
         @event.attendances << @attendance
+        @current_user.attendances << @attendance
         @event.save
-        flash[:notice] = "Thank you for joining" + @event.title
+        @current_user.save
+        flash[:notice] = "Thank you for joining " + @event.title
         redirect_to @event
+
       else
         @attendance.destroy
         flash[:error] = "Something went wrong, please try again."
-        redirect_to new_attendance_path(@attendance)
+        redirect_to new_attendance_path
       end
     else
       flash[:error] = "You must be logged in to join events"
@@ -44,6 +49,11 @@ class AttendancesController < ApplicationController
   private
 
   def attendance_params
-    params.require(:attendance).permit(:contribution)
+    params.require(:attendance).permit(:user_id, :event_id, :contribution)
   end
+
+  def set_user
+  @user = @attendance.user_id
+  end
+
 end
