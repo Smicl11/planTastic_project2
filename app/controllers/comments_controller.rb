@@ -7,16 +7,18 @@ class CommentsController < ApplicationController
     render :new
   end
 
-  def create
-    @event = Event.find_by(params[:id])
-    @comment = Comment.create(comment_params)
-  end
-
   def edit
     comment_id = params[:id]
     @comment = Comment.find_by_id(comment_id)
     render :edit
   end
+  
+  def create
+    @event = Event.find_by(params[:id])
+    @comment = Comment.create(comment_params)
+  end
+
+
 
   def update
     get_id.update_attributes(comment_params)
