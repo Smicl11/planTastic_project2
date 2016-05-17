@@ -21,14 +21,14 @@
     <% end %>
   </div>
 
-    <h1>Who's Going:</h1>
-    <div class="col-xs-4 userList">
+  <h1>Who's Going:</h1>
+  <div class="col-xs-4">
     <% @event.attendances.each do |attendance| %>
-    <div class = "contributions">
-      <strong><%= attendance.user.first_name %> <%= attendance.user.last_name %></strong>
-      <p><%= image_tag (attendance.user.profile_image), class: "userPic" %><br>
-      <p> Contribution: <%= attendance.contribution %></p>
-    </div>
+      <div class = "row">
+        <strong><%= attendance.user.first_name %> <%= attendance.user.last_name %></strong>
+        <p><%= image_tag (attendance.user.profile_image), class: "img-responsive img-thumbnail userpic" %><br>
+        <p> Contribution: <%= attendance.contribution %></p>
+      </div>
     <% end %>
   </div>
 </div>
