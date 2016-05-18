@@ -10,12 +10,6 @@ class CommentsController < ApplicationController
 
 
   def create
-    # @event = Event.find(params[:id])
-    # @user = User.find(params[:id])
-    # @comment = @event.comments.create(comment_params)
-    #
-    # redirect_to event_path(@event)
-    #
     @comment = Comment.new(comment_params)
     @user = User.find_by(params[:user_id])
     @event = Event.find_by_slug(params[:id])
@@ -56,7 +50,7 @@ class CommentsController < ApplicationController
     comment_id = params[:id]
     Comment.find_by_id(comment_id)
     event_id = params[:id]
-    Event.find_by_id(event_id)
+    Event.find_by_slug(event_id)
   end
 
   def comment_params

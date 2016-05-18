@@ -1,7 +1,7 @@
 class AttendancesController < ApplicationController
 
   def new
-    @event = Event.find_by(params[:event_id])
+    @event = Event.find_by_slug(params[:id])
     @user = User.find_by(params[:user_id])
     @attendance = Attendance.new
   end
@@ -10,7 +10,7 @@ class AttendancesController < ApplicationController
     if current_user
       @attendance = Attendance.new(attendance_params)
       @user = User.find_by(params[:user_id])
-      @event = Event.find(params[:id])
+      @event = Event.find_by_slug(params[:id])
       if @attendance.save
         @event.attendances << @attendance
         @current_user.attendances << @attendance
