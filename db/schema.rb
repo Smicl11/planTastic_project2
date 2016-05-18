@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160518194327) do
     t.time     "event_time"
     t.text     "description"
     t.string   "photo"
+    t.integer  "user_id"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.string   "slug"
