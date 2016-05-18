@@ -37,8 +37,7 @@ class EventsController < ApplicationController
   end
 
   def update
-    event_id = params[:id]
-    @event = Event.find_by_slug(id: event_id)
+    @event = Event.find_by_slug(params[:id])
     if @event.update(event_params)
       redirect_to event_path(@event)
     else
