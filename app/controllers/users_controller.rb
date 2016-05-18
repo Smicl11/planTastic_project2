@@ -11,8 +11,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
+    if @user.profile_image == ""
+      @user.profile_image = "/default.jpg"
+    end
+    @user.save
     login(@user)
-    redirect_to root_path
+    redirect_to user_path(@user)
   end
 
   def show

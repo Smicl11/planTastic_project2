@@ -6,24 +6,16 @@
     <div class="row">
       <%= image_tag (@event.photo), class: "img-responsive img-thumbnail" %>
     </div>
-  </div>
-  <div class="col-md-6">
     <div class="row">
       <h2>What?</h2>
-    </div>
-    <div class="row">
       <p><%= @event.description%></p>
     </div>
     <div class="row">
       <h2>Where?</h2>
-    </div>
-    <div class="row">
       <p><%= @event.location%></p>
     </div>
     <div class="row">
       <h2>When?</h2>
-    </div>
-    <div class="row">
       <p>Date: <%= @event.event_date %></p>
       <p>Time: <%= @event.event_time %></p>
     </div>
@@ -37,8 +29,23 @@
       <% end %>
     </div>
   </div>
+
+  <div class="col-md-6">
+      <h1>Comments:</h1>
+      <% @comments.each do |comment|%>
+      <div class="row">
+        <% commenter = User.find_by_id(comment.user_id)%>
+        <h4><%= commenter.first_name%>:</h4>
+        <p><%= comment.description %></p>
+        <%= link_to '', delete_comment_path(@event, comment), data: {:confirm => 'WOOOOW RUDE'}, :method => :delete, class: "glyphicon glyphicon-remove" %>
+      </div>
+      <% end %>
+      <div class="inner"><%= button_to "Add Comment", new_comment_path, :method => "get", class: "btn btn-small btn-primary"%></div>
+  </div>
+
 </div>
 
+<hr>
 <% if current_user %>
 <div class="container">
   <h1>Who's Going:</h1>
@@ -61,15 +68,5 @@
   <div class="container">
     <h1>Please login to see who's attending this party!</h1>
   </div>
-<% end %>
-</div>
-
-<div class="container">
-<%= button_to "Add Comment", new_comment_path, :method => "get", class: "btn btn-small btn-primary"%>
-  <% @comments.each do |comment|%>
-
-  <p><%= comment.description %></p>
-  <p><%= link_to 'Destroy', delete_comment_path(@event, comment),
-        data: {:confirm => 'Are you sure?'}, :method => :delete %> </p>
 <% end %>
 </div>

@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
 
   def new
     @comment = Comment.new
-    @event = Event.find_by_id(params[:id])
+    @event = Event.find_by_slug(params[:id])
     render :new
   end
 
@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
     #
     @comment = Comment.new(comment_params)
     @user = User.find_by(params[:user_id])
-    @event = Event.find(params[:id])
+    @event = Event.find_by_slug(params[:id])
     @event.comments << @comment
     @user.comments << @comment
     @event.save
