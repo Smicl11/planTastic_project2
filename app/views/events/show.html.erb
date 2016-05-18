@@ -68,8 +68,8 @@
 <%= button_to "Add Comment", new_comment_path, :method => "get", class: "btn btn-small btn-primary"%>
   <% @comments.each do |comment|%>
 
-  <p><%= comment.description %></p>
-  <p><%= link_to 'Destroy', delete_comment_path(@event, comment),
-        data: {:confirm => 'Are you sure?'}, :method => :delete %> </p>
+  <p><%= comment.description %>
+  <%= link_to "", delete_comment_path(@event, comment),
+        data: {:confirm => 'Are you sure?'}, :method => :delete, remote: true, class:"glyphicon glyphicon-remove" %> </p>
 <% end %>
 </div>
