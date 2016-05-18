@@ -32,14 +32,14 @@ class EventsController < ApplicationController
 
   def edit
     event_id = params[:id]
-    @event = Event.find_by(id: event_id)
+    @event = Event.find_by_slug(id: event_id)
     @user = User.find_by_id(params[:id])
     render :edit
   end
 
   def update
     event_id = params[:id]
-    @event = Event.find_by(id: event_id)
+    @event = Event.find_by_slug(id: event_id)
     if @event.update(event_params)
       redirect_to event_path(@event)
     else
@@ -57,6 +57,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :location, :event_date, :event_time, :description, :photo)
+    params.require(:event).permit(:title, :location, :event_date, :event_time, :description, :photo, :slug)
   end
 end
