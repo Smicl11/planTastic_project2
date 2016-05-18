@@ -10,17 +10,11 @@ RSpec.describe CommentsController, type: :controller do
     @comment.reload
   end
 
-  describe "GET #new" do
-    it "assigns @comment" do
-      get :new
-      expect(assigns(:comment)).to be_instance_of(Comment)
-    end
 
     it "renders the :new view" do
       get :new
       expect(response).to render_template(:new)
     end
-  end
 
   describe "POST #create" do
     context "success" do

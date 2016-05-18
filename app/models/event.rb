@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
   has_many :users, through: :attendances
   has_many :comments
 
-  validates :event_date, :location, presence:true
+  validates :event_date, :location, :title, presence:true
   validate :future_event?
 
   # adds an error if birth date is in the future
