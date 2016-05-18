@@ -6,6 +6,15 @@
     <div class="row">
       <%= image_tag (@event.photo), class: "img-responsive img-thumbnail" %>
     </div>
+    <div class="group btn-group">
+      <% if current_user%>
+        <div class="inner"><%= button_to "Edit", edit_event_path(@event), :method => "get", class: "btn btn-small btn-success"%></div>
+        <div class="inner"><%= button_to "Delete Event", delete_event_path, data: {:confirm=>'Are you sure you want to delete this event?'}, :method => "delete", class: "btn btn-small btn-danger" %></div>
+        <div class="inner"><%= button_to "Attend", new_attendance_path(@event), :method => "get", class: "btn btn-small btn-primary" %></div>
+      <% else %>
+        <%= button_to "Login", login_path, :method => "get", class: "btn btn-small btn-primary" %>
+      <% end %>
+    </div>
     <div class="row">
       <h2>What?</h2>
       <p><%= @event.description%></p>
@@ -18,15 +27,6 @@
       <h2>When?</h2>
       <p>Date: <%= @event.event_date %></p>
       <p>Time: <%= @event.event_time %></p>
-    </div>
-    <div class="group btn-group">
-      <% if current_user%>
-        <div class="inner"><%= button_to "Edit", edit_event_path(@event), :method => "get", class: "btn btn-small btn-success"%></div>
-        <div class="inner"><%= button_to "Delete Event", delete_event_path, data: {:confirm=>'Are you sure you want to delete this event?'}, :method => "delete", class: "btn btn-small btn-danger" %></div>
-        <div class="inner"><%= button_to "Attend", new_attendance_path(@event), :method => "get", class: "btn btn-small btn-primary" %></div>
-      <% else %>
-        <%= button_to "Login", login_path, :method => "get", class: "btn btn-small btn-primary" %>
-      <% end %>
     </div>
   </div>
 
@@ -50,11 +50,11 @@
       <div class = "row">
         <%= image_tag (attendance.user.profile_image), class: "img-responsive img-circle userpic", size:"140x140" %>
       </div>
-      <div class="row">
+      <div class="row attendanceInfo">
         <%= attendance.user.first_name %>
       </div>
       <div class="row">
-        <%= attendance.contribution %>
+        Contibuting: <%= attendance.contribution %>
       </div>
     </div>
     <% end %>
@@ -65,18 +65,3 @@
   </div>
 <% end %>
 </div>
-
-
-<div id="map-container">
-  <div id="map"></div>
-  <script>
-        var map;
-        function initMap() {
-          map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: -34.397, lng: 150.644},
-            zoom: 8
-          });
-        }
-      </script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=<%ENV['SECRET_KEY']%>&callback=initMap"
-      async defer></script>
