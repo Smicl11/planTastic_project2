@@ -31,8 +31,7 @@ class EventsController < ApplicationController
   end
 
   def edit
-    event_id = params[:id]
-    @event = Event.find_by_slug(id: event_id)
+    @event = Event.find_by_slug(params[:id])
     @user = User.find_by_id(params[:id])
     render :edit
   end
