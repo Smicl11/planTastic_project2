@@ -1,12 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  let(:comment) { Comment.create }
-
-  describe Comment do
-    it " is invalid without a description" do
-      comment = Comment.new
-      comment.should_not be_valid
-    end
+  context "comments need a description" do
+    it(:description) {should_not == nil}
   end
 end

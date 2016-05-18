@@ -8,7 +8,7 @@ class Event < ActiveRecord::Base
 
   # adds an error if birth date is in the future
 def future_event?
-  if event_date < Date.today?
+  if event_date < Date.today
     errors.add(:event_date, "Must be in the future")
   end
 end
