@@ -7,12 +7,12 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by_id(params[:id])
-    @comment = Comment.find_by_id(params[:id])
-    @user = User.find_by_id(params[:id])
+    @user = User.find_by_id(@event.user_id)
     @comments = @event.comments
 
+
     render :show
-    
+
   end
 
   def new
