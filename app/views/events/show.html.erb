@@ -69,8 +69,7 @@
   <% @comments.each do |comment|%>
   <% commenter = User.find_by_id(comment.user_id)%>
   <p><b><%= commenter.first_name%>:</b>
-  <%= comment.description %></p>
-  <p><%= link_to 'Destroy', delete_comment_path(@event, comment),
-        data: {:confirm => 'Are you sure?'}, :method => :delete %> </p>
+  <%= comment.description %> <%= link_to '', delete_comment_path(@event, comment),
+        data: {:confirm => 'WOOOOW RUDE'}, :method => :delete, class: "glyphicon glyphicon-remove" %> </p>
 <% end %>
 </div>
