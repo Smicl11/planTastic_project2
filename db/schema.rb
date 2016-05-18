@@ -29,8 +29,9 @@ ActiveRecord::Schema.define(version: 20160516180900) do
     t.string   "contribution"
     t.integer  "user_id"
     t.integer  "event_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+
   end
 
   create_table "events", force: :cascade do |t|
