@@ -7,10 +7,12 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by_id(params[:id])
-    @user = User.find_by_id(params[:id])
     @comment = Comment.find_by_id(params[:id])
+    @user = User.find_by_id(params[:id])
     @comments = @event.comments
+
     render :show
+    
   end
 
   def new
@@ -23,7 +25,7 @@ class EventsController < ApplicationController
     @event.user_id = current_user.id
     @user = User.find_by_id(params[:id])
     if @event.photo == ""
-      @event.photo = "http://indianasenatedemocrats.org/wp-content/plugins/ajax-search-pro/img/default.jpg"
+      @event.photo = "/placeholder.jpg"
     end
     @event.save
     redirect_to @event
@@ -43,7 +45,7 @@ class EventsController < ApplicationController
       redirect_to event_path(@event)
     else
       flash[:error] = "There was a problem saving your changes"
-      redirect_to edit_event_path(@event)
+      redirect_to event_path(@event)
     end
   end
 

@@ -15,9 +15,22 @@ class CommentsController < ApplicationController
   end
 
   def create
+    # @event = Event.find(params[:id])
+    # @user = User.find(params[:id])
+    # @comment = @event.comments.create(comment_params)
+    #
+    # redirect_to event_path(@event)
+    #
+    @comment = Comment.new(comment_params)
+    @user = User.find_by(params[:user_id])
     @event = Event.find(params[:id])
-    @comment = @event.comments.create(comment_params)
-    redirect_to event_path(@event)
+    @event.comments << @comment
+    @user.comments << @comment
+    @event.save
+    @user.save
+    @comment.save
+
+      redirect_to event_path(@event)
 
   end
 
@@ -29,8 +42,8 @@ class CommentsController < ApplicationController
 
   def destroy
 
-    @event = Event.find(params[:id])
-    @comment = @event.comments.find(params[:id])
+    @event = Event.find(params[:event_id])
+    @comment = Comment.find(params[:comment_id])
     @comment.destroy
 
     redirect_to event_path(@event)
