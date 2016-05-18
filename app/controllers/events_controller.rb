@@ -49,7 +49,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event = Event.find_by_id(params[:id])
+    @event = Event.find_by_slug(params[:id])
     @event.destroy
     redirect_to events_path
   end
