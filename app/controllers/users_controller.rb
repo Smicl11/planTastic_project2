@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.profile_image == ""
-      @user.profile_image = "/default.jpg"
+      @user.profile_image = "http://www.oldpotterybarn.co.uk/wp-content/uploads/2015/06/default-medium.png"
     end
     @user.save
     login(@user)
