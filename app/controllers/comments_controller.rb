@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    @user = User.find_by(params[:user_id])
+    @user = current_user
     @event = Event.find_by_slug(params[:id])
     @event.comments << @comment
     @user.comments << @comment
