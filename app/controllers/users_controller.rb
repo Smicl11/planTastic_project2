@@ -46,10 +46,10 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
     if current_user == @user
       if @user.update(user_params)
-        flash[:notice] = "Successfully Edited!"
+        flash[:notice] = "Successfully Updated!"
         redirect_to @user
       else
-        flash[:error] = "Insufficient or mismatching information. Please try again."
+        flash[:error] = "Please fill in all required fields (marked with *)"
         redirect_to @user
       end
     end
@@ -65,7 +65,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    user_params = params.require(:user).permit(:first_name, :last_name, :email, :profile_image, :password, :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :email, :profile_image, :password, :password_confirmation)
   end
 
 end
