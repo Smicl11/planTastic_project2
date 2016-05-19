@@ -14,9 +14,13 @@ class UsersController < ApplicationController
     if @user.profile_image == ""
       @user.profile_image = "http://www.oldpotterybarn.co.uk/wp-content/uploads/2015/06/default-medium.png"
     end
-    @user.save
+    if @user.save
     login(@user)
     redirect_to user_path(@user)
+    else
+    flash[:error] = "Please fill in all required fields (marked with *)"
+    redirect_to new_user_path
+    end
   end
 
   def show

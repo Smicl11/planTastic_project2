@@ -23,11 +23,15 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user_id = current_user.id
     @user = User.find_by_id(params[:id])
-    if @event.photo == ""
-      @event.photo = "/placeholder.jpg"
-    end
-    @event.save
+  if @event.photo == ""
+    @event.photo = "/placeholder.jpg"
+  end
+  if @event.save
     redirect_to @event
+  else
+    flash[:error] = "Please fill in all required fields (marked with *)"
+    redirect_to new_event_path and return
+  end
   end
 
   def edit

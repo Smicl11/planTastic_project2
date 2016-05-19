@@ -17,11 +17,11 @@
     </div>
     <div class="row">
       <h2>What?</h2>
-      <p><%= @event.description%></p>
+      <p><%= @event.description%></p><hr>
     </div>
     <div class="row">
       <h2>Where?</h2>
-      <p><%= @event.location%></p>
+      <p><%= @event.location%></p><hr>
     </div>
     <div class="row">
       <h2>When?</h2>
@@ -31,7 +31,7 @@
   </div>
 
   <div class="col-md-6">
-      <h1>Comments:</h1>
+      <h1>Comments:</h1><hr>
       <% @comments.each do |comment|%>
       <div class="row">
         <% commenter = User.find_by_id(comment.user_id)%>
@@ -59,7 +59,7 @@
         <%= attendance.user.first_name %>
       </div>
       <div class="row">
-        Contibuting: <%= attendance.contribution %>
+        is bringing <%= attendance.contribution %>
       </div>
     </div>
     <% end %>
