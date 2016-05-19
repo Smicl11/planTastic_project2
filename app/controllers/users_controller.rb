@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.profile_image == ""
-      @user.profile_image = "http://www.oldpotterybarn.co.uk/wp-content/uploads/2015/06/default-medium.png"
+      @user.profile_image = "/placeholder.jpg"
     end
     if @user.save
     flash[:notice] = "Welcome to PlanTastic! Your profile has been successfully created!"
