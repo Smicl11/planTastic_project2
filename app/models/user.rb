@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
   validates :email, :password, length:{maximum:40}, presence:true, confirmation:true
   validates :email, uniqueness:true
   validates_confirmation_of :password
-
   has_secure_password
   has_many :attendances
   has_many :events, through: :attendances
