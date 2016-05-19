@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find_by_id(params[:id])
-    if current_user==@user
+    if current_user == @user
       render :edit
     else
       redirect_to users_path
@@ -39,12 +39,14 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by_id(params[:id])
-    if current_user==@user
-      @user.update(user_params)
-      flash[:notice] = "Successfully Edited!"
-      redirect_to @user
-    else
-      redirect_to users_path
+    if current_user == @user
+      if @user.update(user_params)
+        flash[:notice] = "Successfully Edited!"
+        redirect_to @user
+      else
+        flash[:error] = "Invalid information. Please Try again."
+        redirect_to @user
+      end
     end
   end
 
