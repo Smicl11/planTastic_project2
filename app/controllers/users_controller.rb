@@ -14,9 +14,14 @@ class UsersController < ApplicationController
     if @user.profile_image == ""
       @user.profile_image = "http://www.oldpotterybarn.co.uk/wp-content/uploads/2015/06/default-medium.png"
     end
-    @user.save
-    login(@user)
-    redirect_to user_path(@user)
+    if @user.save
+      flash[:notice] = "Welcome to PlanTastic! Your profile has been successfully created!"
+      login(@user)
+      redirect_to user_path(@user)
+    else
+      flash[:error] = "Insufficient or mismatching information. Please try again."
+      redirect_to new_user_path
+    end
   end
 
   def show
@@ -44,7 +49,7 @@ class UsersController < ApplicationController
         flash[:notice] = "Successfully Edited!"
         redirect_to @user
       else
-        flash[:error] = "Insufficient information. Please Try again."
+        flash[:error] = "Insufficient or mismatching information. Please try again."
         redirect_to @user
       end
     end
@@ -60,7 +65,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    user_params = params.require(:user).permit(:first_name, :last_name, :email, :profile_image, :password)
+    user_params = params.require(:user).permit(:first_name, :last_name, :email, :profile_image, :password, :password_confirmation)
   end
 
 end
