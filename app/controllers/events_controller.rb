@@ -6,13 +6,9 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find_by_id(params[:id])
-    @user = User.find_by_id(@event.user_id)
+    @event = Event.find_by_slug(params[:id])
     @comments = @event.comments
-
-
     render :show
-
   end
 
   def new
@@ -27,20 +23,23 @@ class EventsController < ApplicationController
     if @event.photo == ""
       @event.photo = "/placeholder.jpg"
     end
-    @event.save
-    redirect_to @event
+    if @event.save
+      flash[:notice] = "Let's party! Your event has been successfully created!"
+      redirect_to event_path(@event)
+    else
+      flash[:error] = "Please fill in all required fields (marked with *)"
+      redirect_to new_event_path
+    end
   end
 
   def edit
-    event_id = params[:id]
-    @event = Event.find_by(id: event_id)
+    @event = Event.find_by_slug(params[:id])
     @user = User.find_by_id(params[:id])
     render :edit
   end
 
   def update
-    event_id = params[:id]
-    @event = Event.find_by(id: event_id)
+    @event = Event.find_by_slug(params[:id])
     if @event.update(event_params)
       redirect_to event_path(@event)
     else
@@ -50,7 +49,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event = Event.find_by_id(params[:id])
+    @event = Event.find_by_slug(params[:id])
     @event.destroy
     redirect_to events_path
   end
@@ -58,6 +57,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :location, :event_date, :event_time, :description, :photo)
+    params.require(:event).permit(:title, :location, :event_date, :event_time, :description, :photo, :slug)
   end
 end
