@@ -44,7 +44,7 @@ class UsersController < ApplicationController
         flash[:notice] = "Successfully Edited!"
         redirect_to @user
       else
-        flash[:error] = "Invalid information. Please Try again."
+        flash[:error] = "Insufficient information. Please Try again."
         redirect_to @user
       end
     end
