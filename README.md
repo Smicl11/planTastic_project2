@@ -3,7 +3,7 @@
 
 ### An open source event planning app, where users can publicize upcoming events.
 
-<!-- ![alt tag](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png) -->
+![alt tag](planTastic_project2/screenshot_1.png)
 
 ### Technologies
 Ruby on Rails
@@ -17,7 +17,7 @@ gem 'simple_form'
 gem "friendly_id"
 gem 'rspec-rails', '~> 3.0'
 
-<!-- ![alt tag](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png) -->
+![alt tag](planTastic_project2/screenshot_2.png)
 
 #### User Story
 - User starts on splash page with jumbotron, user attention brought to login/signup
@@ -29,7 +29,7 @@ gem 'rspec-rails', '~> 3.0'
 - From the profile page, user can create events, delete or edit profile
 - Graceful fail on all validations, to guide user.
 
-<!-- ![alt tag](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png) -->
+![alt tag](planTastic_project2/screenshot_3.png)
 
 #### Relationship Model
 - Model user **has_many** events, comments
@@ -37,4 +37,4 @@ gem 'rspec-rails', '~> 3.0'
 - Model comment **belongs_to** event, user
 - Model event **has_many** users, comments, attendance
 
-<!-- ![alt tag](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png) -->
+![alt tag](planTastic_project2/screenshot_1.png)
