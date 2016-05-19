@@ -23,8 +23,13 @@ class EventsController < ApplicationController
     if @event.photo == ""
       @event.photo = "/placeholder.jpg"
     end
-    @event.save
-    redirect_to @event
+    if @event.save
+      flash[:notice] = "Let's party! Your event has been successfully created!"
+      redirect_to event_path(@event)
+    else
+      flash[:error] = "Please fill in all required fields (marked with *)"
+      redirect_to new_event_path
+    end
   end
 
   def edit

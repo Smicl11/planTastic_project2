@@ -18,15 +18,7 @@ google.maps.event.addDomListener(window, 'load', init);
     </div>
     <hr>
     <div class="row">
-      <%= simple_form_for @event, url: update_event_path, as: 'event' do |f| %>
-        <%= f.input :title, placeholder: "Title"%>
-        <%= f.input :location, placeholder: "Location", :input_html => { :id => 'locationTextField' } %>
-        <%= f.input :photo, {placeholder: "Image URL", class: "form-control "} %>
-        <%= f.input :description, placeholder: "Description" %>
-        <%= f.input :event_date, placeholder: "Date"%>
-        <%= f.input :event_time, placeholder: "Time"%>
-        <%= f.button :submit %>
-      <% end %>
+      <%= render "form" %>
     </div>
   </div>
 </div>
