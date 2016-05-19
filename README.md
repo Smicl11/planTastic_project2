@@ -29,7 +29,7 @@ gem 'rspec-rails', '~> 3.0'
 - From the profile page, user can create events, delete or edit profile
 - Graceful fail on all validations, to guide user.
 
-![alt tag](https://github.com/Smicl11/planTastic_project2/blob/screenshots/Screenshot_3.png)
+![alt tag](https://github.com/Smicl11/planTastic_project2/blob/screenshots/screenshot_3.png)
 
 #### Relationship Model
 - Model user **has_many** events, comments
