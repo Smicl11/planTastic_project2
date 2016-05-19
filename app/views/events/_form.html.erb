@@ -1,0 +1,9 @@
+<%= simple_form_for @event do |f| %>
+  <%= f.input :title, placeholder: "Title"%>
+  <%= f.input :location, placeholder: "Location", :input_html => { :id => 'locationTextField' } %>
+  <%= f.input :photo, {placeholder: "Image URL", class: "form-control "} %>
+  <%= f.input :description, placeholder: "Description" %>
+  <%= f.input :event_date, placeholder: "Date", id: "datepicker"%>
+  <%= f.input :event_time, placeholder: "Time"%>
+  <%= f.button :submit %>
+<% end %>
