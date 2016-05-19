@@ -13,6 +13,7 @@
 </head>
 <body>
 
+  <!-- navbar helper -->
   <!-- Basic Navbar -->
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -46,9 +47,7 @@
     </div>
   </nav>
 
-
   <!-- Flash Message -->
-
   <% flash.each do |type, message| %>
     <div class="alert <%= alert_class_for(type) %> alert-dismissible fade in">
       <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -61,6 +60,7 @@
   <%= yield %>
   <!-- End page render -->
 
+  <!-- footer -->
   <div class="container">
     <div class="row">
       <hr class="featurette-divider">

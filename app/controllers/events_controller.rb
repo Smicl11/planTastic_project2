@@ -7,11 +7,8 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by_slug(params[:id])
-
     @comments = @event.comments
-
     render :show
-
   end
 
   def new
@@ -23,15 +20,16 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user_id = current_user.id
     @user = User.find_by_id(params[:id])
-  if @event.photo == ""
-    @event.photo = "/placeholder.jpg"
-  end
-  if @event.save
-    redirect_to @event
-  else
-    flash[:error] = "Please fill in all required fields (marked with *)"
-    redirect_to new_event_path and return
-  end
+    if @event.photo == ""
+      @event.photo = "/placeholder.jpg"
+    end
+    if @event.save
+      flash[:notice] = "Let's party! Your event has been successfully created!"
+      redirect_to event_path(@event)
+    else
+      flash[:error] = "Please fill in all required fields (marked with *)"
+      redirect_to new_event_path
+    end
   end
 
   def edit
