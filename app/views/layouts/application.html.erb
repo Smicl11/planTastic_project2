@@ -12,10 +12,10 @@
 </head>
 <body>
 
+  <!-- navbar helper -->
   <%= render "shared/navbar" %>
 
   <!-- Flash Message -->
-
   <% flash.each do |type, message| %>
     <div class="alert <%= alert_class_for(type) %> alert-dismissible fade in">
       <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -28,17 +28,7 @@
   <%= yield %>
   <!-- End page render -->
 
-  <div class="container">
-    <div class="row">
-      <hr class="featurette-divider">
-      <div class="footer navbar-fixed-bottom">
-        <footer>
-          <p class="pull-right"><a href="#">Back to top</a></p>
-          <p>&copy; 2016 planTastic, Inc. </p>
-        </footer>
-      </div>
-    </div>
-  </div>
+  <%= render "shared/footer" %>
 
 
 </body>
