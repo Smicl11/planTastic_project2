@@ -5,15 +5,7 @@
     </div>
     <hr>
     <div class="row">
-      <%= simple_form_for @user, url: create_user_path, as: 'user' do |f| %>
-        <%= f.input :first_name, placeholder: "Frist Name", :required => true %>
-        <%= f.input :last_name, placeholder: "Last Name", :required => true %>
-        <%= f.input :email, placeholder: "email@email.com", :required => true %>
-        <%= f.input :password, placeholder: "Password", :required => true %>
-        <%= f.input :password_confirmation, placeholder: "Confirm Password", required: true %>
-        <%= f.input :profile_image, placeholder: "www.domain.com/image.jpg" %>
-        <%= f.button :submit %>
-      <% end %>
+      <%= render "form"%>
     </div>
   </div>
 </div>
