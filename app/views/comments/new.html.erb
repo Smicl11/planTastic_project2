@@ -3,12 +3,6 @@
     <div class="row">
       <h1> Add a comment! </h1>
     </div>
-    <hr>
-    <div class="row">
-      <%= simple_form_for @comment, url: create_comment_path(@event), as:'comment' do |f| %>
-        <%= f.input :description, :as => :text, placeholder: "Write your comment here..", class: 'form-control' %>
-        <%= f.button :submit %>
-      <% end %>
-    </div>
+    <%= render "form" %>
   </div>
 </div>
