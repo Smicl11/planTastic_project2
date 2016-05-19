@@ -3,8 +3,7 @@ class Event < ActiveRecord::Base
   has_many :users, through: :attendances
   has_many :comments
 
-  validates :event_date, :location, :title, presence:true
-  validate :future_event?
+  validates :location, :title, presence:true
 
   extend FriendlyId
   friendly_id :title, use: :slugged

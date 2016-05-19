@@ -15,12 +15,12 @@ class UsersController < ApplicationController
       @user.profile_image = "http://www.oldpotterybarn.co.uk/wp-content/uploads/2015/06/default-medium.png"
     end
     if @user.save
-      flash[:notice] = "Welcome to PlanTastic! Your profile has been successfully created!"
-      login(@user)
-      redirect_to user_path(@user)
+    flash[:notice] = "Welcome to PlanTastic! Your profile has been successfully created!"
+    login(@user)
+    redirect_to user_path(@user)
     else
-      flash[:error] = "Insufficient or mismatching information. Please try again."
-      redirect_to new_user_path
+    flash[:error] = "Please fill in all required fields (marked with *)"
+    redirect_to new_user_path
     end
   end
 

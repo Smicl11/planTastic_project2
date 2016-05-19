@@ -27,7 +27,7 @@ class EventsController < ApplicationController
       flash[:notice] = "Let's party! Your event has been successfully created!"
       redirect_to event_path(@event)
     else
-      flash[:error] = "Insufficient information. Please Try again"
+      flash[:error] = "Please fill in all required fields (marked with *)"
       redirect_to new_event_path
     end
   end
