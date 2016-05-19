@@ -7,11 +7,8 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by_slug(params[:id])
-
     @comments = @event.comments
-
     render :show
-
   end
 
   def new
