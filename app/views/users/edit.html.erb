@@ -5,14 +5,7 @@
     </div>
     <hr>
     <div class="row">
-      <%= simple_form_for @user, url: update_user_path, as: 'user' do |f| %>
-        <%= f.input :first_name, placeholder: "Frist Name"%>
-        <%= f.input :last_name, placeholder: "Last Name"%>
-        <%= f.input :email, placeholder: "email@email.com"%>
-        <%= f.input :password, placeholder: "Password"%>
-        <%= f.input :profile_image, placeholder: "www.domain.com/image.jpg" %>
-        <%= f.button :submit %>
-      <% end %>
+      <%= render "forms"%>
     </div>
   </div>
 </div>
