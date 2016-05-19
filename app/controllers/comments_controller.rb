@@ -8,12 +8,6 @@ class CommentsController < ApplicationController
     render :new
   end
 
-  def edit
-    comment_id = params[:id]
-    @comment = Comment.find_by_id(comment_id)
-    render :edit
-  end
-
   def create
     @comment = Comment.new(comment_params)
     @user = current_user
@@ -26,12 +20,6 @@ class CommentsController < ApplicationController
 
       redirect_to event_path(@event)
 
-  end
-
-
-  def update
-    get_id.update_attributes(comment_params)
-    redirect_to user_path(user)
   end
 
   def destroy
