@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-# gem 'dotenv-rails' , :groups => [:development, :production, :test]
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
@@ -40,6 +40,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
+  #gem 'dotenv-rails'
 end
 
 group :development do
