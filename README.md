@@ -6,16 +6,16 @@
 ![alt tag](https://github.com/Smicl11/planTastic_project2/blob/screenshots/screenshot_1.png)
 
 ### Technologies
-Ruby on Rails
-Bootstrap
-Google Places API
-PostgresSQL
-SASS
+- Ruby on Rails
+- Bootstrap
+- Google Places API
+- PostgresSQL database
+- Sass
 
 ### Additional Gems
-gem 'simple_form'
-gem "friendly_id"
-gem 'rspec-rails', '~> 3.0'
+- gem 'simple_form'
+- gem "friendly_id"
+- gem 'rspec-rails', '~> 3.0'
 
 ![alt tag](https://github.com/Smicl11/planTastic_project2/blob/screenshots/screenshot_2.png)
 
